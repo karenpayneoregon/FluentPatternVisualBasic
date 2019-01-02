@@ -65,12 +65,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseExceptionsHandler.vb" />
-    <Compile Include="BaseSqlServerConnection.vb" />
-    <Compile Include="Mail.vb" />
-    <Compile Include="MailCanMessage.vb" />
-    <Compile Include="MailExtensions.vb" />
-    <Compile Include="MailOperations.vb" />
+    <Compile Include="BaseClasses\BaseExceptionsHandler.vb" />
+    <Compile Include="BaseClasses\BaseSqlServerConnection.vb" />
+    <Compile Include="MailClasses\Mail.vb" />
+    <Compile Include="MailClasses\MailCanMessage.vb" />
+    <Compile Include="MailClasses\MailExtensions.vb" />
+    <Compile Include="MailClasses\MailOperations.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -86,7 +86,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="SmtpMailConfiguration.vb" />
+    <Compile Include="MailClasses\SmtpMailConfiguration.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

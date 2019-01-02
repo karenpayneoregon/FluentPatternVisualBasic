@@ -17,7 +17,7 @@ Public Class Tester
             SendMessage()
 
 
-        mailer.CreateMail(GmailConfiguration1).
+        mailer.Begin().
             WithRecipient("karen11@comcast.net").
             WithCarbonCopy("mary@gmail.com").
             WithSubject("Test").
@@ -27,7 +27,7 @@ Public Class Tester
             WithTimeout(2000).
             SendMessage()
 
-        mailer.CreateMail(GmailConfiguration1).
+        mailer.Begin(GmailConfiguration1).
             WithRecipient("karen11@comcast.net").
             WithCarbonCopy("mary@gmail.com").
             WithSubject("Test").
@@ -68,10 +68,41 @@ Public Class MailBuilder
 
         Configuration = New MailConfiguration(pConfiguration)
 
-        Client = New SmtpClient(Configuration.Host, Configuration.Port)
-        Client.Credentials = New NetworkCredential(Configuration.UserName, Configuration.Password)
-        Client.EnableSsl = True
-        Client.Timeout = Configuration.TimeOut
+        Client = New SmtpClient(Configuration.Host, Configuration.Port) With {
+            .Credentials = New NetworkCredential(Configuration.UserName, Configuration.Password),
+            .EnableSsl = True,
+            .Timeout = Configuration.TimeOut
+        }
+
+        Message = New MailMessage() With {.From = New MailAddress(Configuration.FromAddress), .IsBodyHtml = False}
+
+        Return Me
+
+    End Function
+    Public Function Begin() As MailBuilder
+
+        Configuration = New MailConfiguration(GmailConfiguration1)
+
+        Client = New SmtpClient(Configuration.Host, Configuration.Port) With {
+            .Credentials = New NetworkCredential(Configuration.UserName, Configuration.Password),
+            .EnableSsl = True,
+            .Timeout = Configuration.TimeOut
+        }
+
+        Message = New MailMessage() With {.From = New MailAddress(Configuration.FromAddress), .IsBodyHtml = False}
+
+        Return Me
+
+    End Function
+    Public Function Begin(pConfiguration As String) As MailBuilder
+
+        Configuration = New MailConfiguration(pConfiguration)
+
+        Client = New SmtpClient(Configuration.Host, Configuration.Port) With {
+            .Credentials = New NetworkCredential(Configuration.UserName, Configuration.Password),
+            .EnableSsl = True,
+            .Timeout = Configuration.TimeOut
+        }
 
         Message = New MailMessage() With {.From = New MailAddress(Configuration.FromAddress), .IsBodyHtml = False}
 
