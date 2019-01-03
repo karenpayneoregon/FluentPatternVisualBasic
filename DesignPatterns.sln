@@ -7,9 +7,11 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BaseLibrary", "BaseLibrary\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DC6B48B6-1EE9-4F7A-BE70-50C301EBEE00}"
 	ProjectSection(SolutionItems) = preProject
+		emailDatabase.sql = emailDatabase.sql
 		readme.md = readme.md
-		script.sql = script.sql
 	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "NorthWindCustomers", "NorthWindCustomers\NorthWindCustomers.vbproj", "{2E0A718F-8B0D-4925-A1F9-B86097E2AE35}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{92BBFFD4-DA88-495D-B337-E421B52C2EC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92BBFFD4-DA88-495D-B337-E421B52C2EC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92BBFFD4-DA88-495D-B337-E421B52C2EC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E0A718F-8B0D-4925-A1F9-B86097E2AE35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E0A718F-8B0D-4925-A1F9-B86097E2AE35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E0A718F-8B0D-4925-A1F9-B86097E2AE35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E0A718F-8B0D-4925-A1F9-B86097E2AE35}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,7 +7,7 @@
     ''' <summary>
     ''' Name of database containing required tables
     ''' </summary>
-    Protected DefaultCatalog As String = "EmailTesting"
+    Protected DefaultCatalog As String = ""
     Public ReadOnly Property ConnectionString() As String
         Get
             Return $"Data Source={DatabaseServer};Initial Catalog={DefaultCatalog};Integrated Security=True"
