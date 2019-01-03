@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DC6B48B6-1EE9-4F7A-BE70-50C301EBEE00}"
 	ProjectSection(SolutionItems) = preProject
 		emailDatabase.sql = emailDatabase.sql
+		NorthWindPartialScript.sql = NorthWindPartialScript.sql
 		readme.md = readme.md
 	EndProjectSection
 EndProject
