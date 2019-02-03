@@ -1,7 +1,43 @@
-﻿Imports System.IO
-Imports System.Net
+﻿Imports System.Net
 Imports System.Net.Mail
+Public Class Tester
+    Public Sub Example1()
 
+        Dim mailer As New MailBuilder()
+
+        mailer.CreateMail(GmailConfiguration1).
+            WithRecipient("karen@comcast.net").
+            WithRecipient("bill@yahoo.com").
+            WithCarbonCopy("mary@gmail.com").
+            WithCarbonCopy("Jack@gmail.com").
+            WithSubject("January newsletter").
+            WithHtmlView("<p>Hello <strong>Bob</strong></p>...").
+            SendMessage()
+
+
+        mailer.CreateMail(GmailConfiguration1).
+            WithRecipient("karen11@comcast.net").
+            WithCarbonCopy("mary@gmail.com").
+            WithSubject("Test").
+            AsRichContent().
+            WithBody("<p>Hello <strong>Joan</strong></p>").
+            WithPickupFolder().
+            WithTimeout(2000).
+            SendMessage()
+
+        mailer.CreateMail(GmailConfiguration1).
+            WithRecipient("karen11@comcast.net").
+            WithCarbonCopy("mary@gmail.com").
+            WithSubject("Test").
+            WithBody("<p>Hello <strong>Gary</strong></p>").
+            WithPickupFolder().
+            WithTimeout(2000).
+            Priority(MailPriority.High).
+            SendMessage()
+
+
+    End Sub
+End Class
 ''' <summary>
 ''' Used to build a complete email with the ability to send an email message.
 ''' </summary>
@@ -17,7 +53,6 @@ Public Class MailBuilder
     ''' Configuration for <see cref="Client">Client</see>
     ''' </summary>
     Private Configuration As MailConfiguration
-    Private ConfigurationSection As String
     ''' <summary>
     ''' Underlying <see cref="SmtpClient">SmtpClient</see>
     ''' </summary>
@@ -31,47 +66,10 @@ Public Class MailBuilder
 
         Configuration = New MailConfiguration(pConfiguration)
 
-        ConfigurationSection = pConfiguration
-
-        Client = New SmtpClient(Configuration.Host, Configuration.Port) With {
-            .Credentials = New NetworkCredential(Configuration.UserName, Configuration.Password),
-            .EnableSsl = True,
-            .Timeout = Configuration.TimeOut
-        }
-
-        Message = New MailMessage() With {.From = New MailAddress(Configuration.FromAddress), .IsBodyHtml = False}
-
-        Return Me
-
-    End Function
-    ''' <summary>
-    ''' Hard-wired to a specific configuration from app.config
-    ''' </summary>
-    ''' <returns></returns>
-    Public Function Begin() As MailBuilder
-
-        Configuration = New MailConfiguration(GmailConfiguration1)
-
-        Client = New SmtpClient(Configuration.Host, Configuration.Port) With {
-            .Credentials = New NetworkCredential(Configuration.UserName, Configuration.Password),
-            .EnableSsl = True,
-            .Timeout = Configuration.TimeOut
-        }
-
-        Message = New MailMessage() With {.From = New MailAddress(Configuration.FromAddress), .IsBodyHtml = False}
-
-        Return Me
-
-    End Function
-    Public Function Begin(pConfiguration As String) As MailBuilder
-
-        Configuration = New MailConfiguration(pConfiguration)
-
-        Client = New SmtpClient(Configuration.Host, Configuration.Port) With {
-            .Credentials = New NetworkCredential(Configuration.UserName, Configuration.Password),
-            .EnableSsl = True,
-            .Timeout = Configuration.TimeOut
-        }
+        Client = New SmtpClient(Configuration.Host, Configuration.Port)
+        Client.Credentials = New NetworkCredential(Configuration.UserName, Configuration.Password)
+        Client.EnableSsl = True
+        Client.Timeout = Configuration.TimeOut
 
         Message = New MailMessage() With {.From = New MailAddress(Configuration.FromAddress), .IsBodyHtml = False}
 
