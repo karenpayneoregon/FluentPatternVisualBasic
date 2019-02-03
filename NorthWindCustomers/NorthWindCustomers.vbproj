@@ -124,6 +124,10 @@
       <Project>{92bbffd4-da88-495d-b337-e421b52c2ec2}</Project>
       <Name>BaseLibrary</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WindowsFormsLibrary\WindowsFormsLibrary.vbproj">
+      <Project>{e8a0d689-3dfe-4b12-9d10-e90d1abf6e17}</Project>
+      <Name>WindowsFormsLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

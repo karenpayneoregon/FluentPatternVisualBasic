@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{92BBFFD4-DA88-495D-B337-E421B52C2EC2}</ProjectGuid>
+    <ProjectGuid>{E8A0D689-3DFE-4B12-9D10-E90D1ABF6E17}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>BaseLibrary</RootNamespace>
-    <AssemblyName>BaseLibrary</AssemblyName>
+    <RootNamespace>WindowsFormsLibrary</RootNamespace>
+    <AssemblyName>WindowsFormsLibrary</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -19,7 +19,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>BaseLibrary.xml</DocumentationFile>
+    <DocumentationFile>WindowsFormsLibrary.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -28,7 +28,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>BaseLibrary.xml</DocumentationFile>
+    <DocumentationFile>WindowsFormsLibrary.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -45,8 +45,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -65,14 +65,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseClasses\BaseExceptionsHandler.vb" />
-    <Compile Include="BaseClasses\BaseSqlServerConnection.vb" />
-    <Compile Include="BaseClasses\Country.vb" />
-    <Compile Include="Builders\MailBuilder.vb" />
-    <Compile Include="MailClasses\MailCanMessage.vb" />
-    <Compile Include="MailClasses\MailExtensions.vb" />
-    <Compile Include="MailClasses\MailOperations.vb" />
-    <Compile Include="MailClasses\MailTester.vb" />
+    <Compile Include="BindingSourceExtensions.vb" />
+    <Compile Include="DataGridViewExtensions.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -88,9 +82,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="MailClasses\SmtpMailConfiguration.vb" />
-    <Compile Include="Builders\CustomerBuilder.vb" />
-    <Compile Include="NorthWindDataOperations\DataOperations.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
