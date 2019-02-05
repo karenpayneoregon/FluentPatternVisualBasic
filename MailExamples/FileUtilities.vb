@@ -8,11 +8,11 @@ Module FileUtilities
     ''' </summary>
     Public Sub CleanMailFolder()
 
-        Dim pickupFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+        Dim mailPickupFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
                                         (TryCast(ConfigurationManager.GetSection("system.net/mailSettings/smtp"), SmtpSection)).
                                            SpecifiedPickupDirectory.PickupDirectoryLocation)
 
-        Dim mailFiles = Directory.GetFiles(pickupFolder, "*.eml")
+        Dim mailFiles = Directory.GetFiles(mailPickupFolder, "*.eml")
 
         For index As Integer = 0 To mailFiles.Count() - 1
             File.Delete(mailFiles(index))

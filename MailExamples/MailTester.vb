@@ -6,7 +6,6 @@ Public Class MailTester
 
         Dim mailer As New MailBuilder()
 
-
         mailer.CreateMail(GmailConfiguration1).
             WithRecipient("karen@comcast.net").
             WithCarbonCopy("mary@gmail.com").
@@ -31,7 +30,7 @@ Public Class MailTester
             WithRecipient("karen11@comcast.net").
             WithCarbonCopy("mary@gmail.com").
             WithSubject("Test").
-            WithBody("<p>Hello <strong>Gary</strong></p>").
+            WithBody("Hello Gary").
             WithPickupFolder().
             WithTimeout(2000).
             Priority(MailPriority.High).

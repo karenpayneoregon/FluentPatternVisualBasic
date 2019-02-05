@@ -13,7 +13,6 @@ Public Class Form1
 
         WatchMailPickup()
 
-
         ' reset
         mailProgressBar.Value = 0
 
@@ -29,6 +28,7 @@ Public Class Form1
 
     End Sub
     Private Sub WatchMailPickup()
+
         emlFilesListBox.Items.Clear()
 
         Dim pickupFolder = Path.
@@ -44,10 +44,11 @@ Public Class Form1
 
     End Sub
 
-    Private Sub emlFilesCreated(sender As Object, args As FileSystemEventArgs)
+    Private Sub EmlFilesCreated(sender As Object, args As FileSystemEventArgs)
 
 
         If emlFilesListBox.InvokeRequired Then
+
             emlFilesListBox.Invoke(New MethodInvoker(
                 Sub()
                     emlFilesListBox.Items.Add(args.Name)
