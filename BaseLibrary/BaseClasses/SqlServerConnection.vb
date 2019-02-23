@@ -1,5 +1,5 @@
-﻿Public MustInherit Class BaseSqlServerConnection
-    Inherits BaseExceptionsHandler
+﻿Public MustInherit Class SqlServerConnection
+    Inherits BaseExceptionProperties
     ''' <summary>
     ''' This points to your database server
     ''' </summary>

@@ -3,7 +3,7 @@ Imports BaseLibrary.BaseClasses
 
 Namespace NorthWindDataOperations
     Public Class DataOperations
-        Inherits BaseSqlServerConnection
+        Inherits SqlServerConnection
 
         Public Sub New()
             DefaultCatalog = "NorthWindAzure1"
@@ -88,7 +88,9 @@ Namespace NorthWindDataOperations
                         Dim reader = cmd.ExecuteReader()
 
                         While reader.Read()
+
                             columnName = reader.GetString(0)
+
                             If Not IncludePrimaryKeys Then
                                 If Not columnName.Contains("Identifier") AndAlso Not columnName.Equals("id") Then
                                     columnNameList.Add(columnName)

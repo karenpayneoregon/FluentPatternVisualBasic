@@ -65,8 +65,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseClasses\BaseExceptionsHandler.vb" />
-    <Compile Include="BaseClasses\BaseSqlServerConnection.vb" />
+    <Compile Include="BaseClasses\BaseExceptionProperties.vb" />
+    <Compile Include="BaseClasses\SqlServerConnection.vb" />
     <Compile Include="BaseClasses\Country.vb" />
     <Compile Include="Builders\MailBuilder.vb" />
     <Compile Include="MailClasses\MailCanMessage.vb" />

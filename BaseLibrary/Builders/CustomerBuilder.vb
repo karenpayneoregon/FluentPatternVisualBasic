@@ -129,7 +129,7 @@ Public Class CustomersBuilder
 
     End Function
     Private Class DataOperations
-        Inherits BaseSqlServerConnection
+        Inherits SqlServerConnection
 
         ''' <summary>
         ''' Report last (if any) runtime exception.
@@ -183,8 +183,6 @@ Public Class CustomersBuilder
             If Not String.IsNullOrWhiteSpace(OrderByFieldName) Then
                 selectStatement = $"{selectStatement} ORDER BY {OrderByFieldName} {If(OrderDescending, "DESC", "ASC")}"
             End If
-
-
 
             Using cn As New SqlConnection With {.ConnectionString = ConnectionString}
                 Using cmd As New SqlCommand With {.Connection = cn, .CommandText = selectStatement}

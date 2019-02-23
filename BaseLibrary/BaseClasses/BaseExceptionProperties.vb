@@ -1,5 +1,5 @@
 ﻿Imports System.Data.SqlClient
-Public Class BaseExceptionsHandler
+Public Class BaseExceptionProperties
     Protected mHasException As Boolean
     Public ReadOnly Property HasException() As Boolean
         Get

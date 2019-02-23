@@ -4,7 +4,7 @@ Imports System.Net
 Imports System.Net.Mail
 
 Public Class MailOperations
-    Inherits BaseSqlServerConnection
+    Inherits SqlServerConnection
     ''' <summary>
     ''' Responsible for obtaining various settings for sending email messages stored in the calling
     ''' application configuration file.
