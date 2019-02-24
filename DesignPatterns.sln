@@ -26,6 +26,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "NonMailBuilderExamples", "N
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "NorthWindCustomersUpdateContactPhone", "NorthWindCustomersUpdateContactPhone\NorthWindCustomersUpdateContactPhone.vbproj", "{6A34A815-26FB-4901-ABC0-44CEA2A1FEE3}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ProductStockReportBuilderExample", "ProductStockReportBuilderExample\ProductStockReportBuilderExample.vbproj", "{014826D4-41B4-4219-81F2-1389B8E8F808}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{6A34A815-26FB-4901-ABC0-44CEA2A1FEE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A34A815-26FB-4901-ABC0-44CEA2A1FEE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A34A815-26FB-4901-ABC0-44CEA2A1FEE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{014826D4-41B4-4219-81F2-1389B8E8F808}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{014826D4-41B4-4219-81F2-1389B8E8F808}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{014826D4-41B4-4219-81F2-1389B8E8F808}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{014826D4-41B4-4219-81F2-1389B8E8F808}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{856B2949-9910-4F96-85C7-F9B40BDFBEBE} = {19571AA6-1FF9-4412-BF5C-2486338467FA}
 		{68C73890-4F6E-4AF3-91B3-F451E884496D} = {19571AA6-1FF9-4412-BF5C-2486338467FA}
 		{6A34A815-26FB-4901-ABC0-44CEA2A1FEE3} = {19571AA6-1FF9-4412-BF5C-2486338467FA}
+		{014826D4-41B4-4219-81F2-1389B8E8F808} = {19571AA6-1FF9-4412-BF5C-2486338467FA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C811433C-B41F-4F98-B40D-78F65FB5F18C}
