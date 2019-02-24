@@ -4,18 +4,18 @@ Namespace ProductBuilderClasses
     Public Class ProductStockReportBuilder
         Implements IProductStockReportBuilder
 
-        Private _productStockReport As ProductStockReport
-        Private _products As IEnumerable(Of Product)
+        Private productStockReport As ProductStockReport
+        Private products As IEnumerable(Of Product)
 
         Public Sub New(products As IEnumerable(Of Product))
-            _products = products
-            _productStockReport = New ProductStockReport()
+            Me.products = products
+            productStockReport = New ProductStockReport()
         End Sub
         Private Function BuildHeader() As IProductStockReportBuilder _
             Implements IProductStockReportBuilder.BuildHeader
 
-            _productStockReport.
-                HeaderPart = $"STOCK REPORT FOR ALL THE PRODUCTS ON DATE: {Date.Now}{Environment.NewLine}"
+            productStockReport.
+                HeaderPart = $"REPORT FOR PRODUCTS ON DATE: {Date.Now}{Environment.NewLine}"
 
             Return Me
         End Function
@@ -23,9 +23,9 @@ Namespace ProductBuilderClasses
         Private Function BuildBody() As IProductStockReportBuilder _
             Implements IProductStockReportBuilder.BuildBody
 
-            _productStockReport.BodyPart = String.Join(
+            productStockReport.BodyPart = String.Join(
                 Environment.NewLine,
-                _products.Select(Function(p) $"Product name: {p.Name}, product price: {p.Price}"))
+                products.Select(Function(p) $"Product name: {p.Name,8}, product price: {p.Price}"))
 
             Return Me
 
@@ -34,7 +34,7 @@ Namespace ProductBuilderClasses
         Private Function BuildFooter() As IProductStockReportBuilder _
             Implements IProductStockReportBuilder.BuildFooter
 
-            _productStockReport.FooterPart = vbLf & "Report provided by the ABC company."
+            productStockReport.FooterPart = vbLf & "Report provided by the ABC company."
 
             Return Me
 
@@ -42,7 +42,7 @@ Namespace ProductBuilderClasses
 
         Public Function GetReport() As ProductStockReport Implements IProductStockReportBuilder.GetReport
 
-            Dim productStockReport = _productStockReport
+            Dim productStockReport = Me.productStockReport
 
             Clear()
 
@@ -51,7 +51,7 @@ Namespace ProductBuilderClasses
         End Function
 
         Private Sub Clear()
-            _productStockReport = New ProductStockReport()
+            productStockReport = New ProductStockReport()
         End Sub
     End Class
 End Namespace
