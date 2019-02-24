@@ -19,7 +19,7 @@ Public Class MailOperations
     ''' Instantiates configuration class 
     ''' </summary>
     Public Sub New()
-        MailConfig = New MailConfiguration(GmailConfiguration1)
+        MailConfig = New MailConfiguration(GmailConfiguration2)
     End Sub
     ''' <summary>
     ''' For test purposes remove all .eml files from pickup folder

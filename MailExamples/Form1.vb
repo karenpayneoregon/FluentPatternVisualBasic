@@ -1,17 +1,18 @@
-﻿
-Imports System.ComponentModel
-Imports System.Configuration
+﻿Imports System.Configuration
 Imports System.IO
 Imports System.Net.Configuration
 Imports BaseLibrary
 
+
 Public Class Form1
 
-    Private mailOperations As New MailOperations
+    'Private mailOperations As New MailOperations
     Private Sub sendMessagesButton_Click(sender As Object, e As EventArgs) Handles sendMessagesButton.Click
+
         CleanMailFolder()
         Dim mailOperationsTest As New MailTester
 
+        emlFilesListBox.Items.Clear()
         WatchMailPickup()
 
         sendMessagesButton.Enabled = False
@@ -22,8 +23,6 @@ Public Class Form1
 
     End Sub
     Private Sub WatchMailPickup()
-
-        emlFilesListBox.Items.Clear()
 
         Dim pickupFolder = Path.
                 Combine(AppDomain.CurrentDomain.BaseDirectory,
@@ -37,7 +36,12 @@ Public Class Form1
         mailDropFileSystemWatcher.EnableRaisingEvents = True
 
     End Sub
-
+    ''' <summary>
+    ''' Here we add newly created eml files to the ListBox generated
+    ''' in the mail drop folder.
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="args"></param>
     Private Sub EmlFilesCreated(sender As Object, args As FileSystemEventArgs)
 
 
@@ -45,12 +49,16 @@ Public Class Form1
 
             emlFilesListBox.Invoke(New MethodInvoker(
                 Sub()
-                    emlFilesListBox.Items.Add(args.Name)
-                    emlFilesListBox.SelectedIndex = emlFilesListBox.Items.Count - 1
+                    If emlFilesListBox.FindString(args.Name) = -1 Then
+                        emlFilesListBox.Items.Add(args.Name)
+                        emlFilesListBox.SelectedIndex = emlFilesListBox.Items.Count - 1
+                    End If
                 End Sub))
-
 
         End If
 
+    End Sub
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        emlFilesListBox.Items.Clear()
     End Sub
 End Class

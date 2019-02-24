@@ -12,7 +12,15 @@ Public Class MailConfiguration
     Private ReadOnly _smtpSection As SmtpSection
 
     Public Sub New(Optional ByVal section As String = "system.net/mailSettings/smtp")
-        _smtpSection = (TryCast(ConfigurationManager.GetSection(section), SmtpSection))
+        Try
+            _smtpSection = (TryCast(ConfigurationManager.GetSection(section), SmtpSection))
+        Catch ex As Exception
+            '
+            ' It's possible to land here if the following exception is raised
+            '    mscorlib.pdb not loaded” yet the mscorlib.dll is NOT missing
+            ' The fix
+            '    Goto Tools, Options, Debugging, General, Enable Just My Code
+        End Try
     End Sub
     ''' <summary>
     ''' Specifies whom an email is from

@@ -44,6 +44,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DataProviderCommandHelpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DataProviderCommandHelpers.1.0.0\lib\net46\DataProviderCommandHelpers.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -66,6 +69,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseClasses\BaseExceptionProperties.vb" />
+    <Compile Include="BaseClasses\Contact.vb" />
+    <Compile Include="BaseClasses\ContactPhoneType.vb" />
+    <Compile Include="BaseClasses\PhoneTypes.vb" />
     <Compile Include="BaseClasses\SqlServerConnection.vb" />
     <Compile Include="BaseClasses\Country.vb" />
     <Compile Include="Builders\MailBuilder.vb" />
@@ -110,6 +116,7 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

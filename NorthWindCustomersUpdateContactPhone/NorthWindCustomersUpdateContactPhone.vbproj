@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{856B2949-9910-4F96-85C7-F9B40BDFBEBE}</ProjectGuid>
+    <ProjectGuid>{6A34A815-26FB-4901-ABC0-44CEA2A1FEE3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>MailExamples.My.MyApplication</StartupObject>
-    <RootNamespace>MailExamples</RootNamespace>
-    <AssemblyName>MailExamples</AssemblyName>
+    <StartupObject>NorthWindCustomersUpdateContactPhone.My.MyApplication</StartupObject>
+    <RootNamespace>NorthWindCustomersUpdateContactPhone</RootNamespace>
+    <AssemblyName>NorthWindCustomersUpdateContactPhone</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -22,7 +22,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>MailExamples.xml</DocumentationFile>
+    <DocumentationFile>NorthWindCustomersUpdateContactPhone.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -32,7 +32,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>MailExamples.xml</DocumentationFile>
+    <DocumentationFile>NorthWindCustomersUpdateContactPhone.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -49,7 +49,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -74,7 +73,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileUtilities.vb" />
+    <Compile Include="ContactEditorForm.Designer.vb">
+      <DependentUpon>ContactEditorForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ContactEditorForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -82,7 +86,6 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MailTester.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -100,6 +103,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ContactEditorForm.resx">
+      <DependentUpon>ContactEditorForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
@@ -120,19 +126,17 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="App.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BaseLibrary\BaseLibrary.vbproj">
       <Project>{92bbffd4-da88-495d-b337-e421b52c2ec2}</Project>
       <Name>BaseLibrary</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WindowsFormsLibrary\WindowsFormsLibrary.vbproj">
+      <Project>{e8a0d689-3dfe-4b12-9d10-e90d1abf6e17}</Project>
+      <Name>WindowsFormsLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>if not exist $(TargetDir)\MailDrop mkdir $(TargetDir)\MailDrop</PostBuildEvent>
-  </PropertyGroup>
 </Project>

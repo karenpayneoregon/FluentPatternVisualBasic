@@ -1,4 +1,7 @@
-﻿Imports System.Data.SqlClient
+﻿
+Imports System.Data.SqlClient
+Imports BaseLibrary.BaseClasses
+
 
 ''' <summary>
 ''' Responsible for creating queries for Customers table.
@@ -39,6 +42,68 @@ Public Class CustomersBuilder
 
         Table = New DataTable()
         Return Me
+
+    End Function
+    Private mContactIdentfier As Integer
+    ''' <summary>
+    ''' Update contact phone number by contact identifier
+    ''' </summary>
+    ''' <param name="pContactIdentifier"></param>
+    ''' <returns></returns>
+    Public Function UpdateContactPhone(pContactIdentifier As Integer) As CustomersBuilder
+
+        mContactIdentfier = pContactIdentifier
+        Return Me
+
+    End Function
+    Private mPhoneType As PhoneTypes
+    ''' <summary>
+    ''' Set contact phone type for updating contact phone number
+    ''' </summary>
+    ''' <param name="pPhoneType"></param>
+    ''' <returns></returns>
+    Public Function SetContactPhoneTypeAs(pPhoneType As PhoneTypes) As CustomersBuilder
+
+        mPhoneType = pPhoneType
+        Return Me
+
+    End Function
+    Private mContactPhoneNumber As String
+    ''' <summary>
+    ''' Contact phone number to use for update
+    ''' </summary>
+    ''' <param name="pContactPhoneNumber"></param>
+    ''' <returns></returns>
+    Public Function WithPhoneNumber(pContactPhoneNumber As String) As CustomersBuilder
+
+        mContactPhoneNumber = pContactPhoneNumber
+        Return Me
+
+    End Function
+    Private mContactActiveStatus As Boolean
+    Public Function PhoneStatusIsActive(pActive As Boolean) As CustomersBuilder
+
+        mContactActiveStatus = pActive
+        Return Me
+
+    End Function
+    Public Function UpdateContactPhoneDetails() As Boolean
+        'Console.WriteLine(mContactIdentfier)
+        'Console.WriteLine(mPhoneType.ToString())
+        'Console.WriteLine(mContactPhoneNumber)
+        'Console.WriteLine(mContactActiveStatus)
+        'Console.WriteLine(mPhoneType)
+
+        Dim contact As New Contact With
+                {
+                    .Id = mContactIdentfier,
+                    .PhoneTypeIdenitfier = mPhoneType,
+                    .Active = mContactActiveStatus,
+                    .PhoneNumber = mContactPhoneNumber
+                }
+
+        Dim ops As New NorthWindDataOperations.DataOperations
+        Return ops.UpdateContactPhone(contact)
 
     End Function
     ''' <summary>
