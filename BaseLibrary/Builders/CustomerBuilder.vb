@@ -88,11 +88,6 @@ Public Class CustomersBuilder
 
     End Function
     Public Function UpdateContactPhoneDetails() As Boolean
-        'Console.WriteLine(mContactIdentfier)
-        'Console.WriteLine(mPhoneType.ToString())
-        'Console.WriteLine(mContactPhoneNumber)
-        'Console.WriteLine(mContactActiveStatus)
-        'Console.WriteLine(mPhoneType)
 
         Dim contact As New Contact With
                 {
