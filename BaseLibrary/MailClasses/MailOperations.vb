@@ -42,8 +42,9 @@ Public Class MailOperations
 
         mHasException = False
         Dim cannedMessage As New MailCanMessage
-        Dim selectStatement As String = "SELECT HtmlMessage,TextMessage " &
-                                       $"FROM dbo.CannedMessages WHERE id = {messageIdentifier}"
+        Dim selectStatement As String =
+                "SELECT HtmlMessage,TextMessage " &
+                $"FROM dbo.CannedMessages WHERE id = {messageIdentifier}"
 
         Using cn As New SqlConnection With {.ConnectionString = ConnectionString}
             Using cmd As New SqlCommand With {.Connection = cn, .CommandText = selectStatement}
@@ -72,12 +73,15 @@ Public Class MailOperations
         DefaultCatalog = "EmailTesting"
 
         mHasException = False
+
         Dim messageBodyData = Message()
         Dim htmlMessage = messageBodyData.Html
         Dim plainMessage = messageBodyData.Plain
 
         Dim result As New List(Of MailMessage)
+
         Dim selectStatement As String = "SELECT EmailAddress FROM EmailTesting.dbo.EmailAddresses"
+
         Using cn As New SqlConnection With {.ConnectionString = ConnectionString}
             Using cmd As New SqlCommand With {.Connection = cn, .CommandText = selectStatement}
 
@@ -87,10 +91,11 @@ Public Class MailOperations
                     While reader.Read()
                         Dim mail = New MailMessage() With
                             {
-                            .From = New MailAddress(MailConfig.FromAddress),
-                            .Subject = "Example",
-                            .IsBodyHtml = True
+                                .From = New MailAddress(MailConfig.FromAddress),
+                                .Subject = "Example",
+                                .IsBodyHtml = True
                             }
+
                         mail.To.Add(reader.GetString(0))
                         mail.AlternateViews.PlainTextView(plainMessage)
                         mail.AlternateViews.HTmlView(htmlMessage)
@@ -104,7 +109,9 @@ Public Class MailOperations
 
             End Using
         End Using
+
         Return result
+
     End Function
     ''' <summary>
     ''' Send a single email. This could be enhanced via subscribing

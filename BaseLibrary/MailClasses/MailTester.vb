@@ -1,4 +1,5 @@
 ﻿Imports System.Net.Mail
+Imports BaseLibrary.Builders
 
 Public Class MailTester
     Public Sub Example1()

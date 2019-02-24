@@ -73,13 +73,16 @@ Public Class MailConfiguration
     ''' <returns>Name of folder for sending messages too.</returns>
     Public ReadOnly Property PickupFolder() As String
         Get
+
             Dim mailDrop = _smtpSection.SpecifiedPickupDirectory.PickupDirectoryLocation
+
             If mailDrop IsNot Nothing Then
                 mailDrop = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
                     _smtpSection.SpecifiedPickupDirectory.PickupDirectoryLocation)
             End If
 
             Return mailDrop
+
         End Get
     End Property
     ''' <summary>
