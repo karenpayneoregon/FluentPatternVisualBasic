@@ -96,5 +96,14 @@ mailer.CreateMail(GmailConfiguration1).
 
 ---
 
+### Requires
+- Microsoft [Visual Studio](https://visualstudio.microsoft.com/) 2017 or higher
+- Microsoft [SQL-Server](https://www.microsoft.com/en-us/sql-server/sql-server-2017?&OCID=AID739534_SEM_fkhHI4O5&MarinID=sfkhHI4O5_258104145762_sql%20server_e_c__57166984510_aud-397602258452:kwd-14998960_) 2012 or higher
 
+### Build steps
+
+Run the following data scripts against your SQL-Server.
+- [emailDatabase.sql](https://github.com/karenpayneoregon/FluentPatternVisualBasic/blob/master/emailDatabase.sql) 
+- [NorthWindParialScrript.sql](https://github.com/karenpayneoregon/FluentPatternVisualBasic/blob/master/NorthWindPartialScript.sql) 
+- [CreateDatabaseTablesAndPopulate.sql](https://github.com/karenpayneoregon/FluentPatternVisualBasic/blob/master/NonMailBuilderExamples/CreateDatabaseTablesAndPopulate.sql) 
 
