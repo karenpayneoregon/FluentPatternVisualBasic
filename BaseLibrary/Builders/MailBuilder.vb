@@ -25,7 +25,8 @@ Namespace Builders
         ''' </summary>
         Private Client As SmtpClient
         ''' <summary>
-        ''' Instantiation for creating a email message using a <see cref="MailConfiguration">MailConfiguration</see>
+        ''' Instantiation for creating a email message 
+        ''' using a <see cref="MailConfiguration">MailConfiguration</see>
         ''' </summary>
         ''' <param name="pConfiguration"></param>
         ''' <returns>MailBuilder</returns>
@@ -41,7 +42,11 @@ Namespace Builders
                 .Timeout = Configuration.TimeOut
             }
 
-            Message = New MailMessage() With {.From = New MailAddress(Configuration.FromAddress), .IsBodyHtml = False}
+            Message = New MailMessage() With
+                {
+                    .From = New MailAddress(Configuration.FromAddress),
+                    .IsBodyHtml = False
+                }
 
             Return Me
 

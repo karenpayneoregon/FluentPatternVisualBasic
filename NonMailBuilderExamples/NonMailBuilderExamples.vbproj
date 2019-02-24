@@ -74,6 +74,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\SimpleMailOperations.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -123,9 +124,7 @@
   <ItemGroup>
     <Content Include="CreateDatabaseTablesAndPopulate.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Classes\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BaseLibrary\BaseLibrary.vbproj">
       <Project>{92bbffd4-da88-495d-b337-e421b52c2ec2}</Project>
