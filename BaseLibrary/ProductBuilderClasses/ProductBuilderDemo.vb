@@ -14,6 +14,9 @@
             director.BuildStockReport()
 
             Dim report = builder.GetReport()
+            '
+            ' Display to the console
+            '
             Console.WriteLine(report)
         End Sub
     End Class

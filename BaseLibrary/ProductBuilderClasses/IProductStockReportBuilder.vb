@@ -40,7 +40,8 @@ Namespace ProductBuilderClasses
 
         End Function
 
-        Public Function GetReport() As ProductStockReport Implements IProductStockReportBuilder.GetReport
+        Public Function GetReport() As ProductStockReport _
+            Implements IProductStockReportBuilder.GetReport
 
             Dim productStockReport = Me.productStockReport
 

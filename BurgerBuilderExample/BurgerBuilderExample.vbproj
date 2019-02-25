@@ -4,31 +4,35 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{92BBFFD4-DA88-495D-B337-E421B52C2EC2}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>BaseLibrary</RootNamespace>
-    <AssemblyName>BaseLibrary</AssemblyName>
+    <ProjectGuid>{80D1297E-8E76-4F95-AFCB-ADAC953DFF06}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <StartupObject>BurgerBuilderExample.Module1</StartupObject>
+    <RootNamespace>BurgerBuilderExample</RootNamespace>
+    <AssemblyName>BurgerBuilderExample</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>Windows</MyType>
+    <MyType>Console</MyType>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>BaseLibrary.xml</DocumentationFile>
+    <DocumentationFile>BurgerBuilderExample.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>BaseLibrary.xml</DocumentationFile>
+    <DocumentationFile>BurgerBuilderExample.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -44,12 +48,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DataProviderCommandHelpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DataProviderCommandHelpers.1.0.0\lib\net46\DataProviderCommandHelpers.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -68,21 +69,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseClasses\BaseExceptionProperties.vb" />
-    <Compile Include="BaseClasses\Burger.vb" />
-    <Compile Include="BaseClasses\Contact.vb" />
-    <Compile Include="BaseClasses\ContactPhoneType.vb" />
-    <Compile Include="BaseClasses\PhoneTypes.vb" />
-    <Compile Include="BaseClasses\SqlServerConnection.vb" />
-    <Compile Include="BaseClasses\Country.vb" />
-    <Compile Include="Builders\BurgerBuilder.vb" />
-    <Compile Include="Builders\MailBuilder.vb" />
-    <Compile Include="Interfaces\IProductStockReportBuilder.vb" />
-    <Compile Include="ProductBuilderClasses\IProductStockReportBuilder.vb" />
-    <Compile Include="MailClasses\MailCanMessage.vb" />
-    <Compile Include="MailClasses\MailExtensions.vb" />
-    <Compile Include="MailClasses\MailOperations.vb" />
-    <Compile Include="MailClasses\MailTester.vb" />
+    <Compile Include="Module1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -98,13 +85,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="MailClasses\SmtpMailConfiguration.vb" />
-    <Compile Include="Builders\CustomerBuilder.vb" />
-    <Compile Include="NorthWindDataOperations\DataOperations.vb" />
-    <Compile Include="ProductBuilderClasses\Product.vb" />
-    <Compile Include="ProductBuilderClasses\ProductStockReport.vb" />
-    <Compile Include="ProductBuilderClasses\ProductStockReportDirector.vb" />
-    <Compile Include="ProductBuilderClasses\ProductBuilderDemo.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -124,8 +104,13 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="packages.config" />
+    <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BaseLibrary\BaseLibrary.vbproj">
+      <Project>{92bbffd4-da88-495d-b337-e421b52c2ec2}</Project>
+      <Name>BaseLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
