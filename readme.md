@@ -4,6 +4,7 @@
 This repository provides code samples for writing code using 
 fluent desing pattern with VB.NET programming language.
 
+[TechNet article](https://social.technet.microsoft.com/wiki/contents/articles/52583.vb-net-fluent-builder-design-pattern.aspx)
 
 
 >What exactly constitutes a fluent interface? Fowler describes the way that processes are defined by creating the various objects and then wiring them up together by means of an internal domain-specific language (DSL). The intention is to produce an API that is readable and flows. He suggests using method chaining, with nested functions and object scoping. There are several approaches to implementing this depending on the language that is used. 
